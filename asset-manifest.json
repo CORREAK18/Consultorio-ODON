@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Consultorio-ODON/static/css/main.2738a5eb.css",
+    "main.js": "/Consultorio-ODON/static/js/main.9c0661f2.js",
+    "index.html": "/Consultorio-ODON/index.html",
+    "main.2738a5eb.css.map": "/Consultorio-ODON/static/css/main.2738a5eb.css.map",
+    "main.9c0661f2.js.map": "/Consultorio-ODON/static/js/main.9c0661f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2738a5eb.css",
+    "static/js/main.9c0661f2.js"
+  ]
+}
