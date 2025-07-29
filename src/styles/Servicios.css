@@ -1,0 +1,337 @@
+/* Estilos de la página Servicios */
+/* Grid de tarjetas de servicios y información adicional */
+
+.servicios-container {
+  min-height: calc(100vh - 80px);
+}
+
+/* Encabezado de servicios */
+.servicios-header {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #e0f2fe 100%);
+  text-align: center;
+}
+
+.servicios-header .page-title {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.servicios-header .page-subtitle {
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+/* Sección del grid de servicios */
+.servicios-grid-section {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Tarjeta de servicio */
+.servicio-card {
+  background-color: white;
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-bg-tertiary);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.servicio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.servicio-card:hover::before {
+  transform: scaleX(1);
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+/* Icono del servicio */
+.servicio-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  display: block;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Contenido del servicio */
+.servicio-content {
+  text-align: center;
+}
+
+.servicio-nombre {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.servicio-descripcion {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Detalles del servicio */
+.servicio-detalles {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-md);
+}
+
+.detalle-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+.detalle-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detalle-valor {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.detalle-valor.precio {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Botón de consulta */
+.servicio-accion {
+  margin-top: var(--spacing-lg);
+}
+
+.btn-consulta {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-consulta:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Sección de información adicional */
+.info-adicional-section {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #f1f5f9 100%);
+}
+
+.info-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.info-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Información destacada */
+.info-destacada {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.info-item {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal);
+}
+
+.info-item:hover {
+  transform: translateY(-3px);
+}
+
+.info-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.info-item h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.info-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Botones de contacto */
+.contact-button-container {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-contact-main {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-contact-main:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all var(--transition-normal);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.whatsapp-icon {
+  font-size: var(--font-size-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .servicio-detalles {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .detalle-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .info-destacada {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .contact-button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-contact-main,
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .info-description {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicio-card {
+    padding: var(--spacing-lg);
+  }
+
+  .servicio-nome {
+    font-size: var(--font-size-lg);
+  }
+
+  .info-item {
+    padding: var(--spacing-md);
+  }
+
+  .btn-contact-main,
+  .btn-whatsapp {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+}

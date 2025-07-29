@@ -1,0 +1,366 @@
+/* Estilos de la página Consulta */
+/* Formulario de contacto y información adicional */
+
+.consulta-container {
+  min-height: calc(100vh - 80px);
+}
+
+/* Encabezado de consulta */
+.consulta-header {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #e0f2fe 100%);
+  text-align: center;
+}
+
+.consulta-header .page-title {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.consulta-header .page-subtitle {
+  animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+/* Sección del formulario */
+.formulario-section {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.formulario-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--spacing-2xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.formulario-content {
+  background-color: white;
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-bg-tertiary);
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Encabezado del formulario */
+.form-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.form-header h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-header p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Estilos del formulario */
+.consulta-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.form-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-input,
+.form-select {
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-bg-tertiary);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: white;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-light);
+}
+
+.form-input.error,
+.form-select.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+  margin-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.error-message::before {
+  content: '⚠️';
+}
+
+/* Botón de envío */
+.form-submit {
+  margin-top: var(--spacing-lg);
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  padding: var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: var(--font-size-xl);
+}
+
+/* Información adicional */
+.info-adicional {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  animation: slideInRight 0.6s ease-out;
+}
+
+.info-card {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-bg-tertiary);
+}
+
+.info-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Detalles de contacto */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contact-details p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.contact-details strong {
+  color: var(--color-text-primary);
+}
+
+/* Lista de horarios */
+.horarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.horarios-list p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-bg-tertiary);
+}
+
+.horarios-list p:last-child {
+  border-bottom: none;
+}
+
+.horarios-list strong {
+  color: var(--color-text-primary);
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* Lista de información */
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.info-list li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding-left: var(--spacing-lg);
+  position: relative;
+}
+
+.info-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .formulario-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .formulario-content {
+    padding: var(--spacing-lg);
+  }
+
+  .form-header h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .btn-submit {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-base);
+  }
+
+  .info-card {
+    padding: var(--spacing-md);
+  }
+
+  .info-card h3 {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .formulario-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .formulario-content {
+    padding: var(--spacing-md);
+  }
+
+  .form-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .form-icon {
+    font-size: 2rem;
+  }
+
+  .form-header h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .form-input,
+  .form-select {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-submit {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-icon {
+    font-size: var(--font-size-base);
+  }
+
+  .info-card {
+    padding: var(--spacing-sm);
+  }
+
+  .contact-details p,
+  .horarios-list p,
+  .info-list li {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Animaciones para estados de carga */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.btn-submit:disabled {
+  background: var(--color-text-light);
+  cursor: not-allowed;
+  animation: pulse 1.5s infinite;
+}
+
+/* Estados de validación */
+.form-group.success .form-input,
+.form-group.success .form-select {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-group.success::after {
+  content: '✓';
+  color: var(--color-success);
+  font-weight: bold;
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,235 @@
+/* Estilos del componente Footer */
+/* Pie de página con información de contacto y enlaces */
+
+.footer {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, #334155 100%);
+  color: white;
+  margin-top: var(--spacing-2xl);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Sección principal del footer */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: white;
+}
+
+.footer-logo {
+  font-size: var(--font-size-2xl);
+}
+
+.footer-subtitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.footer-description {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* Información de contacto */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: #cbd5e1;
+  transition: color var(--transition-fast);
+}
+
+.contact-item:hover {
+  color: white;
+}
+
+.contact-icon {
+  font-size: var(--font-size-base);
+  width: 20px;
+  text-align: center;
+}
+
+/* Horarios */
+.horarios-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.horario-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: #cbd5e1;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+}
+
+.horario-item:last-child {
+  border-bottom: none;
+}
+
+.dia {
+  font-weight: 500;
+}
+
+.hora {
+  color: var(--color-accent);
+}
+
+/* Enlaces rápidos */
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.quick-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  padding: var(--spacing-xs) 0;
+}
+
+.quick-link:hover {
+  color: var(--color-accent);
+  padding-left: var(--spacing-sm);
+}
+
+/* Sección de WhatsApp */
+.whatsapp-section {
+  margin-top: var(--spacing-lg);
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: white;
+}
+
+.whatsapp-icon {
+  font-size: var(--font-size-base);
+}
+
+/* Línea de copyright */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom .footer-container {
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: none;
+}
+
+.copyright {
+  font-size: var(--font-size-sm);
+  color: #94a3b8;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-xl) var(--spacing-md);
+    gap: var(--spacing-lg);
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .contact-item,
+  .horario-item {
+    justify-content: center;
+  }
+
+  .horario-item {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    text-align: center;
+  }
+
+  .quick-links {
+    align-items: center;
+  }
+
+  .quick-link:hover {
+    padding-left: 0;
+  }
+
+  .whatsapp-button {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .footer-title {
+    font-size: var(--font-size-lg);
+    justify-content: center;
+  }
+
+  .footer-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .footer-bottom .footer-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .copyright {
+    font-size: var(--font-size-xs);
+  }
+}
