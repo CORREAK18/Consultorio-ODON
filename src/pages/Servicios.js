@@ -1,7 +1,7 @@
 // Página de Servicios - Muestra todos los servicios en tarjetas
 // Cada servicio se presenta en una tarjeta con información detallada
 import React from 'react';
-import { serviciosData } from '../data/serviciosData';
+import { serviciosData, consultorioInfo } from '../data/serviciosData';
 import '../styles/Servicios.css';
 
 const Servicios = () => {
@@ -98,7 +98,7 @@ const Servicios = () => {
                 Agendar Consulta
               </a>
               <a 
-                href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20odontológicos"
+                href={`https://wa.me/${consultorioInfo.telefono}?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20odontológicos`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"

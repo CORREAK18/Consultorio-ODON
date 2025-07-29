@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
+import { consultorioInfo } from '../data/serviciosData';
 
 const Header = () => {
 
@@ -21,11 +22,11 @@ const Header = () => {
         <div className="header-contact">
           <div className="contact-item">
             <span className="contact-icon">📞</span>
-            <span className="contact-text">+1234567890</span>
+            <span className="contact-text">{consultorioInfo.telefono}</span>
           </div>
           <div className="contact-item">
-            <span className="contact-icon">�</span>
-            <span className="contact-text">info@consultorioodon.com</span>
+            <span className="contact-icon">✉️</span>
+            <span className="contact-text">{consultorioInfo.email}</span>
           </div>
         </div>
       </div>

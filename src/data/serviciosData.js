@@ -73,7 +73,7 @@ export const consultorioInfo = {
   slogan: "Tu sonrisa es nuestra prioridad",
   descripcion: "Somos un consultorio dental moderno comprometido con brindar la mejor atención odontológica. Contamos con tecnología de vanguardia y un equipo de profesionales altamente capacitados para cuidar tu salud bucal.",
   compromiso: "Nos comprometemos a ofrecer tratamientos de calidad, con calidez humana y tecnología moderna. Tu comodidad y satisfacción son nuestra principal motivación.",
-  telefono: "+1234567890", // Cambiar por el número real de WhatsApp
+  telefono: "+51963236649", // Cambiar por el número real de WhatsApp
   direccion: "Av. Principal #123, Ciudad",
   email: "info@consultorioodon.com",
   horarios: {
