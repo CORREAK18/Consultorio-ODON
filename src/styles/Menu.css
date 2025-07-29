@@ -1,17 +1,67 @@
-/* Estilos del componente Menu */
+/* Estilos del componente Menu independiente */
 /* Navegación principal con iconos y estados */
+
+.menu-container {
+  position: sticky;
+  top: 80px; /* Altura del header */
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-bg-tertiary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Botón hamburguesa para móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+  z-index: 1001;
+  position: relative;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-primary);
+  border-radius: 3px;
+  transition: all var(--transition-normal);
+  transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
 .nav-menu {
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: var(--spacing-md) 0;
 }
 
 .nav-list {
   display: flex;
   list-style: none;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
   margin: 0;
   padding: 0;
+  max-width: 1200px;
 }
 
 .nav-item {
@@ -73,9 +123,17 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .menu-container {
+    top: 70px; /* Altura del header en móvil */
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 110px; /* Header + Menu toggle */
     left: 0;
     right: 0;
     bottom: 0;
@@ -86,7 +144,7 @@
     padding: var(--spacing-xl);
     transform: translateX(-100%);
     transition: transform var(--transition-normal);
-    z-index: 999;
+    z-index: 998;
   }
 
   .nav-menu.active {
@@ -97,6 +155,7 @@
     flex-direction: column;
     width: 100%;
     gap: var(--spacing-md);
+    max-width: none;
   }
 
   .nav-item {
@@ -140,7 +199,12 @@
 }
 
 @media (max-width: 480px) {
+  .menu-container {
+    top: 60px;
+  }
+
   .nav-menu {
+    top: 100px;
     padding: var(--spacing-lg);
   }
 

@@ -1,5 +1,5 @@
 /* Estilos del componente Header */
-/* Navegación principal y logo */
+/* Logo del consultorio y información de contacto */
 
 .header {
   position: fixed;
@@ -55,54 +55,11 @@
   margin: 0;
 }
 
-/* Botón menú hamburguesa */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-}
-
-.menu-toggle span {
-  width: 30px;
-  height: 3px;
-  background-color: var(--color-text-primary);
-  border-radius: 3px;
-  transition: all var(--transition-normal);
-  transform-origin: center;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Navegación principal */
-.header .nav-menu {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xl);
-}
-
 /* Información de contacto en header */
 .header-contact {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  margin-left: var(--spacing-lg);
+  gap: var(--spacing-lg);
 }
 
 .contact-item {
@@ -132,58 +89,35 @@
     font-size: var(--font-size-lg);
   }
 
-  .menu-toggle {
-    display: flex;
-  }
-
-  .header .nav-menu {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: var(--spacing-xl);
-    gap: var(--spacing-lg);
-    transform: translateX(-100%);
-    transition: transform var(--transition-normal);
-  }
-
-  .header .nav-menu.active {
-    transform: translateX(0);
-  }
-
   .header-contact {
-    justify-content: center;
-    margin-left: 0;
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-bg-tertiary);
+    gap: var(--spacing-md);
   }
 
   .contact-item {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Ocultar email en móvil para ahorrar espacio */
+  .contact-item:last-child {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .header-container {
     padding: 0 var(--spacing-sm);
+    height: 60px;
   }
 
   .logo-text {
     font-size: var(--font-size-base);
   }
 
-  .header .nav-menu {
-    padding: var(--spacing-lg);
+  .header-contact {
+    gap: var(--spacing-sm);
   }
 
-  .header-contact {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-md);
+  .contact-text {
+    font-size: var(--font-size-xs);
   }
 }
