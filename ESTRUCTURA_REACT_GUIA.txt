@@ -1,0 +1,421 @@
+# GUÍA DE ESTRUCTURA REACT CON COMPONENTES MODULARES
+# Consultorio ODON - Arquitectura y Patrones de Desarrollo
+
+## DESCRIPCIÓN GENERAL
+Esta guía describe la estructura modular de una aplicación React escalable, utilizando el patrón de separación por responsabilidades. Es aplicable a cualquier proyecto React que requiera navegación, componentes reutilizables y gestión de datos.
+
+## ESTRUCTURA DE CARPETAS
+
+```
+src/
+├── components/         # Componentes reutilizables
+│   ├── Header.js      # Cabecera con logo e información de contacto
+│   ├── Footer.js      # Pie de página con información adicional
+│   └── Menu.js        # Navegación independiente con lógica de menú móvil
+├── pages/             # Páginas principales (vistas)
+│   ├── Inicio.js      # Página principal/landing
+│   ├── Servicios.js   # Página de servicios/productos
+│   └── Consulta.js    # Página de contacto/formularios
+├── routes/            # Configuración de navegación
+│   └── AppRoutes.js   # Definición de rutas y componentes asociados
+├── data/              # Gestión de datos estáticos
+│   └── serviciosData.js # Datos del negocio, configuración global
+├── styles/            # Archivos CSS organizados por componente
+│   ├── index.css      # Estilos globales y variables CSS
+│   ├── App.css        # Estilos del componente principal
+│   ├── Header.css     # Estilos específicos del header
+│   ├── Footer.css     # Estilos específicos del footer
+│   ├── Menu.css       # Estilos de navegación y menú móvil
+│   ├── Inicio.css     # Estilos de la página principal
+│   ├── Servicios.css  # Estilos de la página de servicios
+│   └── Consulta.css   # Estilos del formulario de contacto
+├── App.js             # Componente principal que ensambla toda la aplicación
+└── index.js           # Punto de entrada de React
+```
+
+## COMPONENTES ESENCIALES
+
+### 1. COMPONENTE PRINCIPAL (App.js)
+**Responsabilidad**: Ensamblar todos los componentes y estructurar el layout general.
+
+**Estructura típica**:
+```jsx
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Footer from './components/Footer';
+import AppRoutes from './routes/AppRoutes';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Header />           // Siempre visible
+        <Menu />             // Navegación independiente
+        <main className="main-content">
+          <AppRoutes />      // Contenido dinámico según ruta
+        </main>
+        <Footer />           // Siempre visible
+      </div>
+    </Router>
+  );
+}
+```
+
+**Patrones aplicados**:
+- Layout fijo (Header y Footer siempre visibles)
+- Contenido dinámico en <main>
+- Router como wrapper principal
+- Separación clara de responsabilidades
+
+### 2. HEADER (components/Header.js)
+**Responsabilidad**: Mostrar identidad de marca y información de contacto.
+
+**Elementos típicos**:
+- Logo o nombre del negocio
+- Información de contacto (teléfono, email)
+- Enlaces de contacto directo (WhatsApp, llamadas)
+
+**Características**:
+- Componente estático (sin estado interno complejo)
+- Importa datos desde data/
+- Estilos independientes en Header.css
+- Responsive design
+
+### 3. MENU (components/Menu.js)
+**Responsabilidad**: Navegación principal con manejo de estado móvil.
+
+**Elementos típicos**:
+- Lista de enlaces de navegación
+- Botón hamburguesa para móvil
+- Estado para mostrar/ocultar menú móvil
+- Indicador de página activa
+
+**Características**:
+- Manejo de estado local (useState para menú móvil)
+- Integración con React Router (Link, useLocation)
+- Responsive con transformaciones CSS
+- Lógica de cierre automático en móvil
+
+### 4. FOOTER (components/Footer.js)
+**Responsabilidad**: Información adicional y enlaces secundarios.
+
+**Elementos típicos**:
+- Información de contacto completa
+- Enlaces legales
+- Redes sociales
+- Copyright
+
+**Características**:
+- Componente principalmente estático
+- Puede incluir enlaces externos
+- Estilos independientes
+
+## GESTIÓN DE PÁGINAS
+
+### ESTRUCTURA DE PÁGINAS (pages/)
+Cada página debe seguir este patrón:
+
+```jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { datosRelevantes } from '../data/archivo-datos';
+import '../styles/NombrePagina.css';
+
+const NombrePagina = () => {
+  return (
+    <div className="pagina-container">
+      {/* Secciones organizadas */}
+      <section className="seccion-principal">
+        {/* Contenido */}
+      </section>
+      
+      {/* Más secciones según necesidad */}
+    </div>
+  );
+};
+
+export default NombrePagina;
+```
+
+### TIPOS DE PÁGINAS COMUNES:
+
+1. **Página Principal (Inicio.js)**:
+   - Hero section con call-to-action
+   - Presentación del negocio/servicio
+   - Beneficios o características clave
+   - Enlaces a otras páginas
+
+2. **Página de Servicios/Productos**:
+   - Grid o lista de servicios
+   - Tarjetas con información detallada
+   - Precios y características
+   - Botones de acción (contacto, compra)
+
+3. **Página de Contacto**:
+   - Formulario con validación
+   - Información de contacto
+   - Integración con APIs externas (WhatsApp, email)
+   - Manejo de estado del formulario
+
+## CONFIGURACIÓN DE RUTAS
+
+### AppRoutes.js
+```jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Inicio from '../pages/Inicio';
+import Servicios from '../pages/Servicios';
+import Consulta from '../pages/Consulta';
+
+const AppRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Inicio />} />
+      <Route path="/servicios" element={<Servicios />} />
+      <Route path="/consulta" element={<Consulta />} />
+      {/* Rutas adicionales según necesidad */}
+    </Routes>
+  );
+};
+
+export default AppRoutes;
+```
+
+**Características**:
+- Rutas claras y semánticas
+- Cada ruta apunta a un componente específico
+- Fácil de mantener y extender
+
+## GESTIÓN DE DATOS
+
+### Estructura de datos (data/)
+```javascript
+// serviciosData.js o nombreProyectoData.js
+export const informacionGeneral = {
+  nombre: "Nombre del Negocio",
+  telefono: "+123456789",
+  email: "contacto@negocio.com",
+  direccion: "Dirección completa",
+  horarios: "Lun-Vie 8:00-18:00",
+  slogan: "Frase representativa",
+  descripcion: "Descripción del negocio"
+};
+
+export const serviciosProductos = [
+  {
+    id: 1,
+    nombre: "Servicio 1",
+    descripcion: "Descripción detallada",
+    precio: "Desde $100",
+    duracion: "30 min",
+    icono: "🔧"
+  },
+  // Más elementos...
+];
+
+export const configuracion = {
+  whatsappMensaje: "Mensaje predeterminado para WhatsApp",
+  redesSociales: {
+    facebook: "url",
+    instagram: "url"
+  }
+};
+```
+
+**Principios**:
+- Separar datos de lógica
+- Exportaciones nombradas para facilitar importaciones selectivas
+- Estructura escalable y mantenible
+
+## SISTEMA DE ESTILOS
+
+### Variables CSS Globales (index.css)
+```css
+:root {
+  /* Colores principales */
+  --color-primary: #2563eb;
+  --color-secondary: #06b6d4;
+  --color-accent: #f59e0b;
+  
+  /* Colores de fondo */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #e2e8f0;
+  
+  /* Texto */
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Tipografía */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  
+  /* Efectos */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+}
+```
+
+### Patrón de CSS por Componente
+- Cada componente tiene su archivo CSS correspondiente
+- Usar clases específicas para evitar conflictos
+- Aprovechar variables CSS para consistencia
+- Media queries para responsive design
+
+## INTEGRACIONES EXTERNAS
+
+### WhatsApp Integration
+```javascript
+const enviarWhatsApp = (datos) => {
+  const mensaje = `
+🏢 Nueva Consulta - ${informacionGeneral.nombre}
+
+👤 Datos del Cliente:
+• Nombre: ${datos.nombre}
+• Teléfono: ${datos.telefono}
+• Consulta: ${datos.tipoConsulta}
+
+📝 Mensaje: ${datos.mensaje}
+  `.trim();
+
+  const url = `https://wa.me/${informacionGeneral.telefono}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+};
+```
+
+## RESPONSIVE DESIGN
+
+### Breakpoints Estándar
+```css
+/* Mobile First */
+/* Base: 320px+ */
+
+@media (min-width: 768px) {
+  /* Tablet */
+}
+
+@media (min-width: 1024px) {
+  /* Desktop */
+}
+
+@media (min-width: 1280px) {
+  /* Large Desktop */
+}
+```
+
+### Patrón de Menu Responsive
+- Navegación horizontal en desktop
+- Menú hamburguesa en móvil
+- Transiciones suaves entre estados
+- Overlay o slide para menú móvil
+
+## ADAPTACIÓN PARA OTROS PROYECTOS
+
+### Para E-commerce:
+```
+pages/
+├── Inicio.js          # Landing con productos destacados
+├── Productos.js       # Catálogo completo
+├── Carrito.js         # Carrito de compras
+├── Checkout.js        # Proceso de pago
+└── MiCuenta.js        # Área de usuario
+
+components/
+├── ProductCard.js     # Tarjeta de producto
+├── CartWidget.js      # Contador de carrito
+└── SearchBar.js       # Barra de búsqueda
+```
+
+### Para Blog/Portafolio:
+```
+pages/
+├── Inicio.js          # Presentación personal
+├── Blog.js            # Lista de artículos
+├── Articulo.js        # Vista individual de artículo
+├── Portafolio.js      # Proyectos realizados
+└── Contacto.js        # Información de contacto
+
+components/
+├── ArticleCard.js     # Tarjeta de artículo
+├── ProjectCard.js     # Tarjeta de proyecto
+└── ShareButtons.js    # Botones de compartir
+```
+
+### Para SaaS/Dashboard:
+```
+pages/
+├── Login.js           # Autenticación
+├── Dashboard.js       # Panel principal
+├── Configuracion.js   # Ajustes de usuario
+└── Ayuda.js           # Documentación
+
+components/
+├── Sidebar.js         # Navegación lateral
+├── StatsCard.js       # Tarjetas de estadísticas
+└── DataTable.js       # Tablas de datos
+```
+
+## MEJORES PRÁCTICAS
+
+### Nomenclatura:
+- Componentes: PascalCase (Header.js, Menu.js)
+- Archivos CSS: camelCase (nombreComponente.css)
+- Variables CSS: kebab-case (--color-primary)
+- Funciones: camelCase (enviarFormulario)
+
+### Estructura de Componentes:
+1. Imports (React, librerías, componentes, datos, estilos)
+2. Declaración del componente
+3. Estados y efectos (si aplica)
+4. Funciones auxiliares
+5. Return con JSX
+6. Export default
+
+### Organización:
+- Un componente por archivo
+- Imports agrupados y ordenados
+- Comentarios descriptivos
+- Separación clara de responsabilidades
+
+### Performance:
+- Lazy loading para rutas cuando sea necesario
+- Optimización de imágenes
+- Minimización de re-renders
+- Uso eficiente de useState y useEffect
+
+## COMANDOS ESENCIALES
+
+### Desarrollo:
+```bash
+npm start              # Servidor de desarrollo
+npm run build          # Build de producción
+npm run deploy         # Despliegue a GitHub Pages
+```
+
+### Git Workflow:
+```bash
+git add .
+git commit -m "Descripción del cambio"
+git push origin main
+npm run deploy         # Para actualizar sitio en vivo
+```
+
+Esta estructura es escalable, mantenible y adaptable a diferentes tipos de proyectos React. La separación de responsabilidades facilita el trabajo en equipo y el mantenimiento a largo plazo.
