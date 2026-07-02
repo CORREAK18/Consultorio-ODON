@@ -1,5 +1,3 @@
-// Datos de servicios del consultorio odontológico
-// Contiene información sobre todos los servicios disponibles
 export const serviciosData = [
   {
     id: 1,
@@ -67,15 +65,14 @@ export const serviciosData = [
   }
 ];
 
-// Información general del consultorio
 export const consultorioInfo = {
   nombre: "Consultorio ODON",
   slogan: "Tu sonrisa es nuestra prioridad",
   descripcion: "Somos un consultorio dental moderno comprometido con brindar la mejor atención odontológica. Contamos con tecnología de vanguardia y un equipo de profesionales altamente capacitados para cuidar tu salud bucal.",
   compromiso: "Nos comprometemos a ofrecer tratamientos de calidad, con calidez humana y tecnología moderna. Tu comodidad y satisfacción son nuestra principal motivación.",
-  telefono: "numero del dueño", // Cambiar por el número real de WhatsApp
-  direccion: "Av. Principal #123, Ciudad",
-  email: "info@consultorioodon.com",
+  telefono: "+51 987 654 321",
+  direccion: "Av. Larco 456, Miraflores, Lima, Perú",
+  email: "contacto@consultorioodon.com",
   horarios: {
     lunes: "8:00 AM - 6:00 PM",
     martes: "8:00 AM - 6:00 PM", 

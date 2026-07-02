@@ -1,22 +1,19 @@
-/* Estilos del componente Footer */
-/* Pie de página con información de contacto y enlaces */
-
 .footer {
-  background: linear-gradient(135deg, var(--color-text-primary) 0%, #334155 100%);
-  color: white;
-  margin-top: var(--spacing-2xl);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #94a3b8;
+  margin-top: var(--spacing-3xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-xl);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-2xl);
 }
 
-/* Sección principal del footer */
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -27,30 +24,47 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
+  font-weight: 800;
   color: white;
+  margin-bottom: var(--spacing-xs);
 }
 
-.footer-logo {
-  font-size: var(--font-size-2xl);
+.footer-logo-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary-light);
+  filter: drop-shadow(0 2px 4px rgba(2, 132, 199, 0.3));
 }
 
 .footer-subtitle {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
-  font-weight: 600;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-accent);
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  display: inline-block;
+}
+
+.footer-subtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 1px;
 }
 
 .footer-description {
   font-size: var(--font-size-sm);
-  line-height: 1.6;
-  color: #cbd5e1;
+  line-height: 1.7;
+  color: #94a3b8;
 }
 
-/* Información de contacto */
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -59,10 +73,10 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-sm);
   font-size: var(--font-size-sm);
-  color: #cbd5e1;
+  color: #94a3b8;
   transition: color var(--transition-fast);
 }
 
@@ -70,13 +84,14 @@
   color: white;
 }
 
-.contact-icon {
-  font-size: var(--font-size-base);
-  width: 20px;
-  text-align: center;
+.contact-icon-svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
-/* Horarios */
 .horarios-info {
   display: flex;
   flex-direction: column;
@@ -87,9 +102,9 @@
   display: flex;
   justify-content: space-between;
   font-size: var(--font-size-sm);
-  color: #cbd5e1;
+  color: #94a3b8;
   padding: var(--spacing-xs) 0;
-  border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .horario-item:last-child {
@@ -101,10 +116,10 @@
 }
 
 .hora {
-  color: var(--color-accent);
+  color: white;
+  font-weight: 600;
 }
 
-/* Enlaces rápidos */
 .quick-links {
   display: flex;
   flex-direction: column;
@@ -112,90 +127,77 @@
 }
 
 .quick-link {
-  color: #cbd5e1;
+  color: #94a3b8;
   text-decoration: none;
   font-size: var(--font-size-sm);
   transition: all var(--transition-fast);
-  padding: var(--spacing-xs) 0;
+  padding: 2px 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .quick-link:hover {
-  color: var(--color-accent);
-  padding-left: var(--spacing-sm);
+  color: white;
+  transform: translateX(4px);
 }
 
-/* Sección de WhatsApp */
 .whatsapp-section {
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
 }
 
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--border-radius-lg);
-  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 600;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 .whatsapp-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
   color: white;
 }
 
-.whatsapp-icon {
-  font-size: var(--font-size-base);
-}
-
-/* Línea de copyright */
 .footer-bottom {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-bottom .footer-container {
-  padding: var(--spacing-lg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: none;
+  background-color: #0b1329;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding: var(--spacing-lg) 0;
 }
 
 .copyright {
   font-size: var(--font-size-sm);
-  color: #94a3b8;
+  color: #475569;
   text-align: center;
   margin: 0;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
-    padding: var(--spacing-xl) var(--spacing-md);
-    gap: var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-lg);
+    gap: var(--spacing-xl);
   }
 
   .footer-section {
     text-align: center;
+    align-items: center;
   }
 
-  .contact-item,
-  .horario-item {
+  .contact-item {
     justify-content: center;
   }
 
   .horario-item {
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    text-align: center;
+    width: 100%;
+    max-width: 320px;
   }
 
   .quick-links {
@@ -203,33 +205,26 @@
   }
 
   .quick-link:hover {
-    padding-left: 0;
+    transform: none;
   }
 
   .whatsapp-button {
+    width: 100%;
     justify-content: center;
+    max-width: 320px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-container {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
   }
 
   .footer-title {
     font-size: var(--font-size-lg);
-    justify-content: center;
   }
 
   .footer-subtitle {
     font-size: var(--font-size-base);
-  }
-
-  .footer-bottom .footer-container {
-    padding: var(--spacing-md) var(--spacing-sm);
-  }
-
-  .copyright {
-    font-size: var(--font-size-xs);
   }
 }
